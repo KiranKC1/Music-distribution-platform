@@ -7,9 +7,15 @@ use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\Exception\UnsatisfiedDependencyException;
 use App\Code;
 use Session;
+use Mail;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth',['except' => ['GetGoodies', 'CheckCode']]);
+    }
+
     public function GenerateCode()
     {
         for($i = 1; $i <= 100 ;$i++)
@@ -106,7 +112,22 @@ class AdminController extends Controller
             Session::flash('error',"The code has been already redeemed");
             return redirect()->back();
             }else{
-            return redirect()->route('get.goodies',['uuid' => $code->uuid,'access_code' => $code->access_code,'email' => $request->email]);
+            //  return redirect()->route('get.goodies',['uuid' => $code->uuid,'access_code' => $code->access_code,'email' => $request->email]);
+             //Or Mail to unique route
+             $data = array(
+                'email' => $request->email,
+                'subject' => "Pahenlo Batti Muni Album download link",
+                'link' => route('get.goodies',['uuid' => $code->uuid,'access_code' => $code->access_code,'email' => $request->email]),
+            );
+             Mail::send('email.download-link', $data, function($message) use ($data){
+                $message->to($data['email']);
+                $message->from('pahenlobattimuni@gmail.com');
+                $message->subject($data['subject']);
+            });
+
+            Session::flash('success','Thank you for your purchase. We have emailed you the download link to the email you provided.Please check your email for the download link.');
+            return redirect()->back();
+   
             }
         }else{
             Session::flash('error','Sorry the code you provided was incorrect');
@@ -121,9 +142,7 @@ class AdminController extends Controller
             $code->status = "redeemed";
             $code->redeemed_by = $email;
             $code->save();
-            Session::flash('success','Thank you for your purchase. Incase the download fails please email us at pahenlobattimuni@gmail.com along with your code and we will reactivate your code.');
             return response()->download(storage_path('app/public/songs/Pahenlo Batti Muni.zip'));
-            
         }else{
             Session::flash('status','You have already used the code. If there was probelm downloading contact us at pahenlobattimuni@gmail.com along with your code');
            return redirect()->route('album.download');

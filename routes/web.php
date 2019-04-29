@@ -31,14 +31,9 @@ Route::get('shipped_codes','AdminController@ShippedCodes')->name('shipped_codes'
 Route::get('unshipped_codes','AdminController@UnShippedCodes')->name('unshipped_codes');
 Route::get('redeemed_codes','AdminController@RedeemedCodes')->name('redeemed_codes');
 
-//upload Songs
-// Route::post('upload_songs','SongController@Store')->name('store.song');
-// Route::get('getsongs/{filename}','SongController@getSongs')->name('get.songs');
-// Route::get('download/all','SongController@DownloadZip')->name('download.zip');
-
+});
 //frontendroutes
 Route::post('check_code','AdminController@CheckCode')->name('check.code');
 Route::get('pbm/getgoodies/{uuid}/{access_code}/{email}','AdminController@GetGoodies')->name('get.goodies');
-});
 
 

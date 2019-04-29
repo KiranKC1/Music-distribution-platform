@@ -45,9 +45,5 @@ class HomeController extends Controller
         return view('admin.dashboard')->with('rdm_codes',$rdm_codes)->with('shipped_codes',$shipped_codes)->with('unshipped_codes',$unshipped_codes);
         return view('admin.dashboard');
     }
-    public function UploadMusic()
-    {
-        $songs = Song::all();
-        return view('admin.upload_music')->with('songs',$songs);
-    }
+
 }
