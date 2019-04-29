@@ -12,8 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('home');
-})->name('album.download');
+    return view('frontend.home');
+})->name('home');
 
 
 Route::prefix('admin')->group(function(){
