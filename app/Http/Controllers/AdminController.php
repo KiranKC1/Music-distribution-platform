@@ -18,7 +18,7 @@ class AdminController extends Controller
 
     public function GenerateCode()
     {
-        for($i = 1; $i <= 100 ;$i++)
+        for($i = 1; $i <= 50 ;$i++)
         {
             $code = new Code;
             $code->access_code = "PBM-".$this->TheGenerator();
@@ -26,7 +26,7 @@ class AdminController extends Controller
             $code->uuid = Uuid::uuid1();
             $code->save();         
         }
-        Session::flash('status',"Generated 100 Album Codes Succesfully!");
+        Session::flash('status',"Generated 50 Album Codes Succesfully!");
         return redirect()->route('get.code');
  
     }
