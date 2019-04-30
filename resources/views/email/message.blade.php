@@ -240,9 +240,9 @@ Sizes: [
 															<table border="0" cellpadding="30" cellspacing="0" width="100%">
 																<tr>
 																	<td align="center" valign="top" class="textContent">
-																		<h1 style="color:#FFFFFF;line-height:100%;font-family:Helvetica,Arial,sans-serif;font-size:35px;font-weight:normal;margin-bottom:5px;text-align:center;">पहेँलो बत्ती मुनि</h1>
-																		<h2 style="text-align:center;font-weight:normal;font-family:Helvetica,Arial,sans-serif;font-size:23px;margin-bottom:10px;color:#205478;line-height:135%;">विचित्र</h2>
-																		<div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#FFFFFF;line-height:135%;">Thank you for purchasing our album. Click the button below to begin your download. After you begin your download your code is no longer of use so we recommend you have a stable internet connection. If the download gets interrupted email us at pahenlobattimuni@gmail.com or visit our website www.pahenlobattimuni.com and send us a message along with your code.</div>
+                                                                    <h1 style="color:#FFFFFF;line-height:100%;font-family:Helvetica,Arial,sans-serif;font-size:35px;font-weight:normal;margin-bottom:5px;text-align:center;">{{$name}}</h1>
+                                                                    <h2 style="text-align:center;font-weight:normal;font-family:Helvetica,Arial,sans-serif;font-size:23px;margin-bottom:10px;color:#205478;line-height:135%;">{{$email}} @if(isset($number)) | {{$number}} @endif</h2>
+                                                                    <div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#FFFFFF;line-height:135%;">{{$bodyMessage}}</div>
 																	</td>
 																</tr>
 															</table>
@@ -259,47 +259,6 @@ Sizes: [
 								</td>
 							</tr>
 							<!-- // MODULE ROW -->
-
-
-
-
-							<!-- MODULE ROW // -->
-							<tr>
-								<td align="center" valign="top">
-									<!-- CENTERING TABLE // -->
-									<table border="0" cellpadding="0" cellspacing="0" width="100%">
-										<tr style="padding-top:20px;">
-											<td align="center" valign="top">
-												<!-- FLEXIBLE CONTAINER // -->
-												<table border="0" cellpadding="30" cellspacing="0" width="500" class="flexibleContainer">
-													<tr>
-														<td style="padding-top:30px;" align="center" valign="top" width="500" class="flexibleContainerCell">
-
-															<!-- CONTENT TABLE // -->
-															<table border="0" cellpadding="0" cellspacing="0" width="50%" class="emailButton" style="background-color: #070E18;">
-																<tr>
-																	<td align="center" valign="middle" class="buttonContent" style="padding-top:15px;padding-bottom:15px;padding-right:15px;padding-left:15px;">
-                                                                    <a style="color:#FFFFFF;text-decoration:none;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:135%;" href="{{$link}}" target="_blank">Download Album</a>
-																	</td>
-																</tr>
-															</table>
-															<!-- // CONTENT TABLE -->
-
-														</td>
-													</tr>
-												</table>
-												<!-- // FLEXIBLE CONTAINER -->
-											</td>
-										</tr>
-									</table>
-									<!-- // CENTERING TABLE -->
-								</td>
-							</tr>
-							<!-- // MODULE ROW -->
-
-							<!-- MODULE ROW // -->
-				
-
 						</table>
 						<!-- // END -->
 

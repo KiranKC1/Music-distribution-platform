@@ -1,5 +1,25 @@
 
 <body id="body" class="u-body--header-side-push-right">
+    @if ($errors->any())
+    <div class="container">
+      <div class="row">
+        <div>
+          <div data-notify="container" class="col-xs-11 col-sm-4 alert alert-danger alert-dismissible fade show" role="alert" data-notify-position="bottom-right" style="display: inline-block; margin: 0px auto; position: fixed; transition: all 0.5s ease-in-out; z-index: 1031; bottom: 20px; right: 10px; animation-iteration-count: 1;">
+            <button type="button" class="close u-alert-close--light" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+            <h4 class="h5">
+              <i class="fa fa-minus-circle"></i>
+              Oh snap!
+            </h4> 
+            @foreach ($errors->all() as $error)
+            <p>{!! $error !!}</p>
+            @endforeach
+    </div>
+    </div>
+    </div>
+    </div>
+    @endif
     @if (Session::has('error'))
     <div class="container">
       <div class="row">

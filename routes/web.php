@@ -33,7 +33,8 @@ Route::get('redeemed_codes','AdminController@RedeemedCodes')->name('redeemed_cod
 
 });
 //frontendroutes
-Route::post('check_code','AdminController@CheckCode')->name('check.code');
+Route::post('pbm/check_code','AdminController@CheckCode')->name('check.code');
 Route::get('pbm/getgoodies/{uuid}/{access_code}/{email}','AdminController@GetGoodies')->name('get.goodies');
+Route::post('pbm/message','FrontendController@Message')->name('post.message');
 
 

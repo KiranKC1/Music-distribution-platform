@@ -96,7 +96,7 @@
                   </div>
     
                   <div class="col-md-12 form-group g-mb-40">
-                      <input id="email_id" name="email" class="form-control g-font-size-default g-color-gray-dark-v4 g-placeholder-inherit g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-brd-gray-light-v5 g-rounded-1 g-py-13 g-px-12" type="text" placeholder="Email Address" required>
+                      <input id="email_id" name="email" class="form-control g-font-size-default g-color-gray-dark-v4 g-placeholder-inherit g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-brd-gray-light-v5 g-rounded-1 g-py-13 g-px-12" type="email" placeholder="Email Address" required>
                   </div>
                 </div>
     
@@ -143,27 +143,32 @@
   
             <p class="g-mb-65 g-color-white">If you have any queries feel free to contact us. If you had trouble with your download please send us the code you purchased along with the message.</p>
   
-            <form>
+          <form action="{{route('post.message')}}" method="POST">
+            {{csrf_field()}}
               <div class="row">
                 <div class="col-md-6 form-group g-mb-30">
-                  <input id="inputGroup1_1" class="form-control g-font-size-default g-color-gray-dark-v4 g-placeholder-inherit g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-brd-gray-light-v5 g-rounded-1 g-py-13 g-px-12" type="text" placeholder="Your name">
+                  <input name="name" id="inputGroup1_1" class="form-control g-font-size-default g-color-gray-dark-v4 g-placeholder-inherit g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-brd-gray-light-v5 g-rounded-1 g-py-13 g-px-12" type="text" placeholder="Your name" required>
                 </div>
   
                 <div class="col-md-6 form-group g-mb-30">
-                  <input id="inputGroup1_2" class="form-control g-font-size-default g-color-gray-dark-v4 g-placeholder-inherit g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-brd-gray-light-v5 g-rounded-1 g-py-13 g-px-12" type="tel" placeholder="Your phone">
+                  <input name="number" id="inputGroup1_2" class="form-control g-font-size-default g-color-gray-dark-v4 g-placeholder-inherit g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-brd-gray-light-v5 g-rounded-1 g-py-13 g-px-12" type="tel" placeholder="Your phone">
                 </div>
+
+                <div class="col-md-12 form-group g-mb-30">
+                    <input id="inputGroup1_3" name="email" class="form-control g-font-size-default g-color-gray-dark-v4 g-placeholder-inherit g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-brd-gray-light-v5 g-rounded-1 g-py-13 g-px-12" type="email" placeholder="Email" required>
+                  </div>
   
                 <div class="col-md-12 form-group g-mb-30">
-                  <input id="inputGroup1_3" class="form-control g-font-size-default g-color-gray-dark-v4 g-placeholder-inherit g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-brd-gray-light-v5 g-rounded-1 g-py-13 g-px-12" type="text" placeholder="Subject">
+                  <input id="inputGroup1_3" name="subject" class="form-control g-font-size-default g-color-gray-dark-v4 g-placeholder-inherit g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-brd-gray-light-v5 g-rounded-1 g-py-13 g-px-12" type="text" placeholder="Subject" required>
                 </div>
   
                 <div class="col-md-12 form-group g-mb-40">
-                  <textarea id="inputGroup1_4" class="form-control g-resize-none g-font-size-default g-color-gray-dark-v4 g-placeholder-inherit g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-brd-gray-light-v5 g-rounded-1 g-py-6 g-px-12" rows="6" placeholder="Message"></textarea>
+                  <textarea id="inputGroup1_4" name="message" class="form-control g-resize-none g-font-size-default g-color-gray-dark-v4 g-placeholder-inherit g-bg-gray-light-v5 g-bg-gray-light-v5--focus g-brd-gray-light-v5 g-rounded-1 g-py-6 g-px-12" rows="6" placeholder="Message" required></textarea>
                 </div>
               </div>
   
               <div class="text-center">
-                  <a href="#!" class="btn btn-lg u-btn-outline-primary text-uppercase u-btn-hover-v2-2 g-mr-10 g-mb-15">Send Message</a>
+                  <button type="submit" class="btn btn-lg u-btn-outline-primary text-uppercase u-btn-hover-v2-2 g-mr-10 g-mb-15">Send Message</button>
               </div>
             </form>
           </div>

@@ -106,6 +106,10 @@ class AdminController extends Controller
 
     public function CheckCode(Request $request)
     {
+        $this->validate($request, array(
+            'code'=>'required',
+            'email'=>'required'
+        ));
         $code = Code::where('access_code',$request->code)->first();
         if($code != null){
             if($code->status == "redeemed" || $code->status == "unshipped"){
