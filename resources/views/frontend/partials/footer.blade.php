@@ -38,19 +38,24 @@
 <script src="{{asset('assets/js/components/hs.popup.js')}}"></script>
 <script src="{{asset('assets/js/components/hs.carousel.js')}}"></script>
 
-<script src="{{asset('assets/js/components/gmap/hs.map.js')}}"></script>
 
 <script src="{{asset('assets/js/components/hs.go-to.js')}}"></script>
 
 <!-- JS Custom -->
 <script src="{{asset('assets/js/custom.js')}}"></script>
+<script src="{{asset('assets/js/components/hs.scroll-nav.js')}}"></script>
 @yield('js')
 <!-- JS Plugins Init. -->
 <script>
   // initialization of google map
-  function initMap() {
-    $.HSCore.components.HSGMap.init('.js-g-map');
-  }
+
+
+  $(window).on('load', function() {
+        // initialization of HSScrollNav
+        $.HSCore.components.HSScrollNav.init($('#js-scroll-nav'), {
+          duration: 700
+        });
+      });
 
   $(document).on('ready', function () {
     // initialization of go to
@@ -90,6 +95,10 @@
       direction: 'vertical',
       breakpoint: 991
     });
+  });
+
+  $('.nav-link').on('click',function(){
+    $( "#header-toggler" ).trigger( "click" );
   });
 </script>
 </body>

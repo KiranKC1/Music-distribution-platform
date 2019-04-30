@@ -1,9 +1,56 @@
 
-<body class="u-body--header-side-push-right">
+<body id="body" class="u-body--header-side-push-right">
+    @if (Session::has('error'))
+    <div class="container">
+      <div class="row">
+        <div>
+          <div data-notify="container" class="col-xs-11 col-sm-4 alert alert-danger alert-dismissible fade show" role="alert" data-notify-position="bottom-right" style="display: inline-block; margin: 0px auto; position: fixed; transition: all 0.5s ease-in-out; z-index: 1031; bottom: 20px; right: 10px; animation-iteration-count: 1;">
+            <button type="button" class="close u-alert-close--light" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+            <h4 class="h5">
+              <i class="fa fa-minus-circle"></i>
+              Oh snap!
+            </h4> 
+          <p>{{Session::get('error')}}</p>
+    </div>
+    </div>
+    </div>
+    </div>
+    @endif
+    @if (Session::has('status'))
+    <div class="container">
+      <div class="row">
+        <div>
+          <div data-notify="container" class="col-xs-11 col-sm-4 alert alert-info alert-dismissible fade show" role="alert" data-notify-position="bottom-right" style="display: inline-block; margin: 0px auto; position: fixed; transition: all 0.5s ease-in-out; z-index: 1031; bottom: 20px; right: 10px; animation-iteration-count: 1;">
+          <p>{!!Session::get('status')!!}</p>
+    </div>
+    </div>
+    </div>
+    </div>
+    @endif
+    @if (Session::has('success'))
+    <div class="container">
+        <div class="row">
+          <div>
+            <div data-notify="container" class="col-xs-11 col-sm-4 alert alert-success alert-dismissible fade show" role="alert" data-notify-position="bottom-right" style="display: inline-block; margin: 0px auto; position: fixed; transition: all 0.5s ease-in-out; z-index: 1031; bottom: 20px; right: 10px; animation-iteration-count: 1;">
+              <button type="button" class="close u-alert-close--light" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+              <h4 class="h5">
+                <i class="fa fa-check-circle"></i>
+                Success
+              </h4>
+              <p>{{Session::get('success')}}</p>              
+          </div>
+      </div>
+      </div>
+      </div>
+    @endif
         <main>
           <!-- Header Toggle Button -->
-          <button class="btn u-btn-white u-header-toggler u-header-toggler--top-left g-pa-0" id="header-toggler" aria-haspopup="true" aria-expanded="false" aria-controls="js-header" aria-label="Toggle Header" data-target="#js-header">
-            <span class="hamburger hamburger--collapse">
+          <button  class="btn u-btn-yellow u-header-toggler u-header-toggler--top-left g-pa-0" id="header-toggler" aria-haspopup="true" aria-expanded="false" aria-controls="js-header" aria-label="Toggle Header" data-target="#js-header">
+            <span class="hamburger">
           <span class="hamburger-box">
             <span class="hamburger-inner"></span>
             </span>
@@ -37,27 +84,27 @@
                     <div class="collapse navbar-collapse align-items-center flex-sm-row w-100 g-mt-20 g-mt-0--lg g-mb-40" id="navBar">
                       <ul class="navbar-nav ml-auto text-uppercase text-center g-font-weight-600 u-sub-menu-v1"> 
                         <li class="nav-item g-my-5">
-                        <a href="{{route('home')}}" class="nav-link" style="font-size:30px;">Home
+                        <a href="#home" class="nav-link g-color-yellow--hover" style="font-size:30px;">Home
                         
                       </a>
                         </li>
                         <li class="nav-item g-my-5">
-                                <a href="#!" class="nav-link" style="font-size:27px;">Got Code?
+                              <a href="#album" class="nav-link g-color-yellow--hover" style="font-size:27px;">Get Album
+                
+                      </a>
+                        </li>
+                        <li class="nav-item g-my-5">
+                        <a href="#merch" class="nav-link g-color-yellow--hover" style="font-size:24px;">Merch
                         
                       </a>
                         </li>
                         <li class="nav-item g-my-5">
-                        <a href="#!" class="nav-link" style="font-size:24px;">Album
+                                <a href="#about" class="nav-link g-color-yellow--hover" style="font-size:21px;">About
                         
                       </a>
                         </li>
                         <li class="nav-item g-my-5">
-                                <a href="#!" class="nav-link" style="font-size:21px;">About
-                        
-                      </a>
-                        </li>
-                        <li class="nav-item g-my-5">
-                                <a href="#!" class="nav-link" style="font-size:18px;">Gallery
+                                <a href="#contact" class="nav-link g-color-yellow--hover" style="font-size:15px;">Contact
                         
                       </a>
                         </li>

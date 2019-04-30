@@ -144,8 +144,9 @@ class AdminController extends Controller
             $code->save();
             return response()->download(storage_path('app/public/songs/Pahenlo Batti Muni.zip'));
         }else{
-            Session::flash('status','You have already used the code. If there was probelm downloading contact us at pahenlobattimuni@gmail.com along with your code');
-           return redirect()->route('album.download');
+            $msg = 'You have already used the code. If there was probelm downloading, <a href="#contact" style="text-decoration:none;" class="g-color-black"> contact us  </a>  at pahenlobattimuni@gmail.com along with your code';
+            Session::flash('status',$msg);
+           return redirect()->route('home');
         }
     }
     
